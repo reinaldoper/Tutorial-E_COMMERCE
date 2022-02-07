@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %}
+
+<div class='row'>
+    <li class="nav-item">
+        <a class="btn btn-primary btn-lg" href="{%url 'delete-view' products.slug %}" role="button">Delete</a>
+    </li>
+    <div class='col'>
+        <h1>{{ object.title }}</h1>
+        {{ object.timestamp|timesince }} atrás
+        <h3>{{ "Por apenas:"|title }}</h3>
+        <h3>{{ object.price }}$R</h3>
+        {{ object.description|linebreaks }} <br/> {% if object.image %}
+        <img src='{{ object.image.url }}' class='img-fluid' /> {% endif %}
+    </div>
+</div>
+
+{% endblock content %}
